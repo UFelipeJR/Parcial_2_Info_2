@@ -21,3 +21,12 @@ En esta clase se hace la inicialización del tablero, aplicación de movimientos
 Clongomerado de las clases principales, jugador y tablero, pero acá se hacen los inputs, y ese tipo de cosas para hacer del juego amigable, en pocas palabras se incluye todo lo que se relaciona con el funcionamiento en consola del juego.
 
 * Por otra parte, hay cosas que no están directamente relacionadas con los objetos, por lo que tendríamos un archivo de funcionalidad dedicados a la lectura y escritura de archivos.
+
+
+## Diseño de Solución (Propenso a muchos cambios)
+
+<div align="center">
+  <img src="https://i.imgur.com/bqWsBLu.png" width="400" height="300">
+</div>
+
+Explicación de Solución
