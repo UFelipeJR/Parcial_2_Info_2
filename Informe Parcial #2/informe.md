@@ -31,9 +31,7 @@ Clongomerado de las clases principales, jugador y tablero, pero acá se hacen lo
 
 ### Explicación de Solución
 
-Realizando bien el análisis, nos percatamos de que en realidad son solamente necesarias dos clases, jugador y tablero, tablero contendrá todo lo correspondiente a su inicialización y gestión del juego, como colocar fichas en el mismo, entre otras cosas, jugador estará mezclado con los atributos de una ficha, esta decisión se tomó debido a que consideramos que las fichas están más ligadas a un jugador y sería más adecuado que tener una clase propia, por lo tanto, jugador tendría un nombre, cantidad de fichas en juego, entre otros métodos que verifiquen la validez de los movimientos propios del usuario. Por otra parte, en lugar de agregar métodos que no estén relacionados a una clase espécifica se decidió tener una libreria con funciones que no tienen que ver con las clases y de esta manera mantener las clases "limpias".
-
-Todavía está la consideración de una tercera clase, para la validación todos los elementos de la ejecución del juego, sin embargo por ahora las clases tablero y jugador son las más importantes. 
+Realizando bien el análisis, nos percatamos de que en realidad son solamente necesarias tres clases, jugador, tablero y juego, tablero contendrá todo lo correspondiente a su inicialización y gestión del juego, como colocar fichas en el mismo, entre otras cosas, jugador estará mezclado con los atributos de una ficha, esta decisión se tomó debido a que consideramos que las fichas están más ligadas a un jugador y sería más adecuado que tener una clase propia, por lo tanto, jugador tendría un nombre, cantidad de fichas en juego, entre otros métodos que verifiquen la validez de los movimientos propios del usuario. En el caso de juego será el conglomerado de las anteriores clases.
 
 ### Clase Jugador:
 
@@ -83,6 +81,9 @@ Inicialmente la clase tablero tendrá los siguientes atributos, con un acceso pr
 
     El día sábado a más tardar el domingo se colocará una descripción de todos los métodos y las respetivas lógicas usadas.
 
-### Funcionalidades Externas:
 
-Como se dijo anteriormente, hay funcionalidades que no tienen mucho que ver con los objetos, por lo tanto, se decidió agregar las funciones en un archivo aparte, ya que no tiene sentido desde nuestro punto de vista, crear una clase que no tenga atributos, pues no hay objetos no objetos que no tengan sus respectivas caracteristicas y en parte esto se debe tener en cuenta en el modelamiento.
+
+
+### Clase juego
+
+Acá se conglomera todo
