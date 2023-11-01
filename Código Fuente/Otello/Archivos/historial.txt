@@ -1,0 +1,2 @@
+Jugador 1: Santiago, Jugador 2: Felipe, Fecha y Hora: Tue Oct 31 20:56:18 2023, Ganador: Empate
+Jugador 1: Andredito, Jugador 2: Thomas, Fecha y Hora: Tue Oct 31 20:55:18 2023, Ganador: Empateÿÿ
