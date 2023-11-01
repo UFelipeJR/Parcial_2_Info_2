@@ -82,8 +82,17 @@ Inicialmente la clase tablero tendrá los siguientes atributos, con un acceso pr
     El día sábado a más tardar el domingo se colocará una descripción de todos los métodos y las respetivas lógicas usadas.
 
 
-
-
 ### Clase juego
 
-Acá se conglomera todo
+Acá se conglomeran las clasea anteriores.
+
+## Lógica de la Solución
+
+### Comprobación de la Validez de una Jugada
+
+Se utiliza un método que recibe como argumento el número del jugador, la fila y la columna que se desea evaluar, se hacen varias deficiones, para guardar los caracteres representativos de cada jugador y se inician las coordenadas X y Y en un tipo de variable short, ya que no se necesita representar valores más grandes; después se procede con una validación en la que se comprueba si la posición es diferente de ' ', es decir un caracter vacio, puesto que esto ahorraría  muchas iteraciones si resulta ser falsa la condición.Después se fija el jugadorP o principal, y el jugadorS o secundario, haciendo uso de punteros para evitar la creación de variables y tener una sola definición funcional en todo el código por así decirlo.
+
+La clase tablero tiene un arreglo que almacena las posibles direcciones en las que se puede hacer un encierro tipo sanduche, por lo tanto se inicia un for que comprobará cada una de las direcciones, después se hace una comprobación para comprobar que que las coordenadas X y Y siguen estando en un rango válido y que en estas casillas esté el caracter del jugador secundario, después si esto resulta verdadero se avanza en la misma dirección para comprobar si hay una ficha del jugadorP, si no se cumple nada se retorna false.
+
+
+//Complementar explicación ya que posiblemente tendrá errores o no es tan clara
