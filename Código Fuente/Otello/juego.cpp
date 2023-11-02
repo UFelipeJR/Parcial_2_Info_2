@@ -133,11 +133,13 @@ void juego::menu_juego()
 
         cout << "El Jugador 1: " << player1.getNombreJugador() << "\t"
         << "Cantidad de Fichas:" << player1.getCantFichas() << "\t"
-        << "Caracter Representativo:"<< *player1.getCaracterRepre() << endl;
+        << "Caracter Representativo:"<< *player1.getCaracterRepre()
+        << "\t" << "Color: Negro" << endl;
 
         cout << "El Jugador 2: " << player2.getNombreJugador() << "\t"
         << "Cantidad de Fichas:" << player2.getCantFichas() << "\t"
-        << "Caracter Representativo:"<< *player2.getCaracterRepre() << endl;
+        << "Caracter Representativo:"<< *player2.getCaracterRepre()
+        << "\t" << "Color: Blanco" << endl;
 
 
         Tablero.imprimirTablero();
@@ -191,18 +193,24 @@ void juego::menu_juego()
             }
         }
 
+
     if((Tablero.contJugadas(jug1) == 0)&&(Tablero.contJugadas(jug2) == 0)){
+        cout << "Juego Finalizado" << endl;
+        Tablero.imprimirTablero();
         if(player1.getCantFichas() > player2.getCantFichas()){
             ganador = player1.getNombreJugador();
-            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + player1.getNombreJugador() + ", Cantidad de Fichas: " + to_string(player1.getCantFichas()) + "\n";
+            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador  + ", Cantidad de Fichas: " + to_string(player1.getCantFichas()) + "\n";
+            cout << "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador  + ", Cantidad de Fichas: " + to_string(player1.getCantFichas()) + "\n" << endl;
         }
         else if(player1.getCantFichas() < player2.getCantFichas()){
             ganador = player2.getNombreJugador();
-            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + player2.getNombreJugador() + ", Cantidad de Fichas: " + to_string(player2.getCantFichas()) + "\n";
+            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador  + ", Cantidad de Fichas: " + to_string(player2.getCantFichas()) + "\n";
+            cout << "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador  + ", Cantidad de Fichas: " + to_string(player2.getCantFichas()) + "\n" << endl;
         }
         else{
             ganador = "Empate";
             historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + "\n";
+            cout << "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + "\n" << endl;
         }
         break;
     }

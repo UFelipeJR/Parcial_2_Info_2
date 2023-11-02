@@ -63,7 +63,7 @@ void tablero::inicializarTablero()
     char* caracterRepre2 = jugador2->getCaracterRepre();
 
     for(int i = 0;i<filas;i++){
-      for(int j = 0; j<columnas;j++){
+        for(int j = 0; j<columnas;j++){
             Tablero[i][j] = ' ';
         }
     }
@@ -73,13 +73,86 @@ void tablero::inicializarTablero()
     Tablero[(filas/2)][(filas/2)-1] = *caracterRepre1;
     Tablero[(filas/2)-1][(filas/2)] = *caracterRepre1;
 
+    Tablero[0][0] =*caracterRepre1;
+    Tablero[0][1] =*caracterRepre1;
+    Tablero[0][2] =*caracterRepre1;
+    Tablero[0][3] =*caracterRepre1;
+    Tablero[0][4] =*caracterRepre1;
+    Tablero[0][5] =*caracterRepre1;
+    Tablero[0][6] =*caracterRepre1;
+    Tablero[0][7] =*caracterRepre1;
 
-    for(int i = 0;i<7;i++){
-      for(int j = 0; j<7;j++){
-            Tablero[i][j] = *caracterRepre1;
-        }
-    }
+    Tablero[1][0] =*caracterRepre1;
+    Tablero[1][1] =*caracterRepre1;
+    Tablero[1][2] =*caracterRepre1;
+    Tablero[1][3] =*caracterRepre1;
+    Tablero[1][4] = *caracterRepre1;
+    Tablero[1][5] =*caracterRepre2;
+    Tablero[1][6] =*caracterRepre1;
+    Tablero[1][7] =*caracterRepre1;
 
+    Tablero[2][0] =*caracterRepre1;
+    Tablero[2][1] =*caracterRepre1;
+    Tablero[2][2] =*caracterRepre1;
+    Tablero[2][3] =*caracterRepre1;
+    Tablero[2][4] =*caracterRepre2;
+    Tablero[2][5] =*caracterRepre1;
+    Tablero[2][6] =*caracterRepre1;
+    Tablero[2][7] =*caracterRepre1;
+
+    Tablero[3][0] =*caracterRepre1;
+    Tablero[3][1] =*caracterRepre1;
+    Tablero[3][2] =*caracterRepre1;
+    Tablero[3][3] =*caracterRepre2;
+    Tablero[3][4] = *caracterRepre1;
+    Tablero[3][5] =*caracterRepre1;
+    Tablero[3][6] = *caracterRepre1;
+    Tablero[3][7] =*caracterRepre1;
+
+    Tablero[4][0] = *caracterRepre1;
+    Tablero[4][1] =*caracterRepre1;
+    Tablero[4][2] = *caracterRepre2;
+    Tablero[4][3] =*caracterRepre1;
+    Tablero[4][4] = *caracterRepre2;
+    Tablero[4][5] =*caracterRepre1;
+    Tablero[4][6] = *caracterRepre1;
+    Tablero[4][7] =*caracterRepre1;
+
+    Tablero[4][0] = *caracterRepre1;
+    Tablero[4][1] = *caracterRepre1;
+    Tablero[4][2] = *caracterRepre2;
+    Tablero[4][3] = *caracterRepre1;
+    Tablero[4][4] = *caracterRepre2;
+    Tablero[4][5] = *caracterRepre1;
+    Tablero[4][6] = *caracterRepre1;
+    Tablero[4][7] = *caracterRepre1;
+
+    Tablero[5][0] = *caracterRepre1;
+    Tablero[5][1] = *caracterRepre2;
+    Tablero[5][2] = *caracterRepre1;
+    Tablero[5][3] = *caracterRepre1;
+    Tablero[5][4] = *caracterRepre1;
+    Tablero[5][5] = *caracterRepre1;
+    Tablero[5][6] = *caracterRepre1;
+    Tablero[5][7] = *caracterRepre1;
+
+    Tablero[6][0] = *caracterRepre1;
+    Tablero[6][1] = *caracterRepre1;
+    Tablero[6][2] = *caracterRepre1;
+    Tablero[6][3] = *caracterRepre1;
+    Tablero[6][4] = *caracterRepre1;
+    Tablero[6][5] = *caracterRepre2;
+    Tablero[6][6] = *caracterRepre1;
+    Tablero[6][7] = *caracterRepre1;
+
+    Tablero[7][0] = *caracterRepre1;
+    Tablero[7][1] = *caracterRepre1;
+    Tablero[7][2] = *caracterRepre1;
+    Tablero[7][3] = *caracterRepre1;
+    Tablero[7][4] = *caracterRepre1;
+    Tablero[7][5] = *caracterRepre1;
+    Tablero[7][6] = *caracterRepre1;
+    Tablero[7][7] = *caracterRepre1;
 
 }
 
@@ -118,10 +191,11 @@ string tablero::numeracionFila()
 void tablero::imprimirTablero() {
 
     string numeracion = numeracionFila();
+    string fila = filaAmigable();
     cout << numeracionFila() << endl;
     for (int i = 0; i < filas; i++) {
         if (i >= 0) {
-            cout << filaAmigable() << endl;
+            cout << fila << endl;
         }
         cout << "|";
         for (int j = 0; j < columnas; j++) {
@@ -129,7 +203,7 @@ void tablero::imprimirTablero() {
         }
         cout << " " << i+1 << endl;
     }
-    cout << filaAmigable() << endl;
+    cout << fila << endl;
 }
 
 void tablero::actualizarCantFichas()
