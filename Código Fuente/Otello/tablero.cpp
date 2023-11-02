@@ -73,6 +73,7 @@ void tablero::inicializarTablero()
     Tablero[(filas/2)][(filas/2)-1] = *caracterRepre1;
     Tablero[(filas/2)-1][(filas/2)] = *caracterRepre1;
 
+    /*
     Tablero[0][0] =*caracterRepre1;
     Tablero[0][1] =*caracterRepre1;
     Tablero[0][2] =*caracterRepre1;
@@ -153,6 +154,7 @@ void tablero::inicializarTablero()
     Tablero[7][5] = *caracterRepre1;
     Tablero[7][6] = *caracterRepre1;
     Tablero[7][7] = *caracterRepre1;
+    */
 
 }
 
@@ -199,7 +201,12 @@ void tablero::imprimirTablero() {
         }
         cout << "|";
         for (int j = 0; j < columnas; j++) {
-            cout << " " << Tablero[i][j] << " |";
+            if(Tablero[i][j] == *(jugador1->getCaracterRepre())){
+                cout << " " << "\033[34m" << Tablero[i][j] << "\033[0m" << " |";
+            }
+            else{
+                cout << " " << Tablero[i][j] << " |";
+            }
         }
         cout << " " << i+1 << endl;
     }
