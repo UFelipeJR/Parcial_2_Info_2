@@ -2,6 +2,6 @@
 
 int main()
 {
-    juego otello;
+    juego otello(8);
     otello.menu();
 }

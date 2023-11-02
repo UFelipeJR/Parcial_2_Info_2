@@ -2,8 +2,16 @@
 
 juego::juego()
 {
+    historial = "";
     dimensionTablero = 8;
 }
+
+juego::juego(short int dimensionTablero)
+{
+    historial = "";
+    this -> dimensionTablero = dimensionTablero;
+}
+
 
 template<typename T>
 T juego::obtener_Entrada(string mensaje, T inf, T max)
@@ -28,11 +36,6 @@ T juego::obtener_Entrada(string mensaje, T inf, T max)
     }
 
     return opcion;
-}
-
-juego::juego(string &ruta)
-{
-    cargar_Historial(ruta);
 }
 
 void juego::cargar_Historial(string& ruta){
@@ -145,6 +148,7 @@ void juego::menu_juego()
         while(true){
 
             if(Tablero.contJugadas(turno) == 0){
+                cout << "No hay turnos disponibles" << endl;
                 break;
             }
             cout << "Turno Jugador 1: " << player1.getNombreJugador() <<  endl;
@@ -170,6 +174,7 @@ void juego::menu_juego()
 
         while(true){
             if(Tablero.contJugadas(turno) == 0){
+                cout << "No hay turnos disponibles" << endl;
                 break;
             }
             cout << "Turno Jugador 2: " << player2.getNombreJugador() <<  endl;
@@ -189,11 +194,11 @@ void juego::menu_juego()
     if((Tablero.contJugadas(jug1) == 0)&&(Tablero.contJugadas(jug2) == 0)){
         if(player1.getCantFichas() > player2.getCantFichas()){
             ganador = player1.getNombreJugador();
-            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + player1.getNombreJugador() + "\n";
+            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + player1.getNombreJugador() + ", Cantidad de Fichas: " + to_string(player1.getCantFichas()) + "\n";
         }
         else if(player1.getCantFichas() < player2.getCantFichas()){
             ganador = player2.getNombreJugador();
-            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + player2.getNombreJugador() + "\n";
+            historial = "Jugador 1: " + player1.getNombreJugador() + ", Jugador 2: " + player2.getNombreJugador() + ", Fecha y Hora: " + generar_DMHA() + ", Ganador: " + ganador + player2.getNombreJugador() + ", Cantidad de Fichas: " + to_string(player2.getCantFichas()) + "\n";
         }
         else{
             ganador = "Empate";
@@ -205,7 +210,7 @@ void juego::menu_juego()
 
     contTotal = Tablero.contJugadas(jug1) + Tablero.contJugadas(jug2);
     }
-    while((contTotal != Tablero.getFilas()*Tablero.getColumnas())); //Condición para cantidad de fichas
+    while((contTotal != Tablero.getFilas()*Tablero.getColumnas())||(contTotal != 0)); //Condición para cantidad de fichas
     menu();
 
 

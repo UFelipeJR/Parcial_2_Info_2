@@ -17,7 +17,7 @@ class juego
 
 public:
     juego();
-    juego(string& ruta);
+    juego(short int dimensionTablero);
 
     void cargar_Historial(string& ruta);
     void menu();

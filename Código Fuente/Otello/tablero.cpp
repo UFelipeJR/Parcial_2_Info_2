@@ -73,6 +73,14 @@ void tablero::inicializarTablero()
     Tablero[(filas/2)][(filas/2)-1] = *caracterRepre1;
     Tablero[(filas/2)-1][(filas/2)] = *caracterRepre1;
 
+
+    for(int i = 0;i<7;i++){
+      for(int j = 0; j<7;j++){
+            Tablero[i][j] = *caracterRepre1;
+        }
+    }
+
+
 }
 
 
