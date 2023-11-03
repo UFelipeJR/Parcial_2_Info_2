@@ -23,10 +23,10 @@ Clongomerado de las clases principales, jugador y tablero, pero acá se hacen lo
 * Por otra parte, hay cosas que no están directamente relacionadas con los objetos, por lo que tendríamos un archivo de funcionalidad dedicados a la lectura y escritura de archivos.
 
 
-## Diseño de Solución (Propenso a muchos cambios)
+## Diseño de Solución
 
 <div align="center">
-  //NUEVA IMAGE FALTA
+<img src="https://i.imgur.com/bqWsBLu.png?2" width="400" height="300">
 </div>
 
 ### Explicación de Solución
