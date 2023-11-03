@@ -2,6 +2,17 @@
 
 tablero::tablero()
 {
+
+    /*
+     * Constructor por defecto de tablero
+     *
+     * Variables inicializadas:
+     *  - validas: un arreglo con bastantes posiciones para la comprobacion de la validez de la direccion que se toma en el juego
+     *  - filas, columnas: por defecto en 8 así como en el juego original
+     *  - Tablero: el tablero como tal para armar el arreglo el cual se usara para los datos del transcurso del juego
+     *
+     */
+
     short int validas[8][2] = {{0,1},{0,-1},{1,0},{-1,0},{1,1},{1,-1},{-1, 1},{-1, -1}};
 
     for(int i = 0; i<8; i++){
@@ -18,10 +29,19 @@ tablero::tablero()
         Tablero[i] = new unsigned char[columnas];
     }
 
+
 }
 
 tablero::tablero(short int filas, short int columnas, jugador* jugador1, jugador* jugador2)
 {
+    /*
+     * Constructor sobrecargado con filas, columnas y ambos jugadores con sus respectivos nombres
+     *
+     * Es el mismo concepto del anterior más sin embargo este esta dado para controlar los datos que reciben
+     * en ejecución
+     *
+     */
+
     short int validas[8][2] = {{0,1},{0,-1},{1,0},{-1,0},{1,1},{1,-1},{-1, 1},{-1, -1}};
 
     this->filas = filas;
@@ -47,6 +67,10 @@ tablero::tablero(short int filas, short int columnas, jugador* jugador1, jugador
 
 tablero::~tablero()
 {
+    /*
+     * Destructor de la clase tablero (para liberar la memoria dinámica)
+     *
+     */
 
     // Liberación de memoria dinámica
 
@@ -58,7 +82,19 @@ tablero::~tablero()
 }
 
 void tablero::inicializarTablero()
-{    
+{
+
+    /*
+     * Metodo encargado de tomar los datos e inicializar el tablero originalmente con las posiciones iniciales
+     *
+     * Variables Inicializadas:
+     *  - caractearRepre1: caracter representativo para el jugador 1
+     *  - caracterRepre2: caracter representativo para el jugador 2
+     *
+     *  Retornos:
+     *   - none
+     */
+
     char* caracterRepre1 = jugador1->getCaracterRepre();
     char* caracterRepre2 = jugador2->getCaracterRepre();
 
@@ -73,148 +109,25 @@ void tablero::inicializarTablero()
     Tablero[(filas/2)][(filas/2)-1] = *caracterRepre1;
     Tablero[(filas/2)-1][(filas/2)] = *caracterRepre1;
 
-    /*
-    Tablero[0][0] =*caracterRepre1;
-    Tablero[0][1] =*caracterRepre1;
-    Tablero[0][2] =*caracterRepre1;
-    Tablero[0][3] =*caracterRepre1;
-    Tablero[0][4] =*caracterRepre1;
-    Tablero[0][5] =*caracterRepre1;
-    Tablero[0][6] =*caracterRepre1;
-    Tablero[0][7] =*caracterRepre1;
-
-    Tablero[1][0] =*caracterRepre1;
-    Tablero[1][1] =*caracterRepre1;
-    Tablero[1][2] =*caracterRepre1;
-    Tablero[1][3] =*caracterRepre1;
-    Tablero[1][4] = *caracterRepre1;
-    Tablero[1][5] =*caracterRepre2;
-    Tablero[1][6] =*caracterRepre1;
-    Tablero[1][7] =*caracterRepre1;
-
-    Tablero[2][0] =*caracterRepre1;
-    Tablero[2][1] =*caracterRepre1;
-    Tablero[2][2] =*caracterRepre1;
-    Tablero[2][3] =*caracterRepre1;
-    Tablero[2][4] =*caracterRepre2;
-    Tablero[2][5] =*caracterRepre1;
-    Tablero[2][6] =*caracterRepre1;
-    Tablero[2][7] =*caracterRepre1;
-
-    Tablero[3][0] =*caracterRepre1;
-    Tablero[3][1] =*caracterRepre1;
-    Tablero[3][2] =*caracterRepre1;
-    Tablero[3][3] =*caracterRepre2;
-    Tablero[3][4] = *caracterRepre1;
-    Tablero[3][5] =*caracterRepre1;
-    Tablero[3][6] = *caracterRepre1;
-    Tablero[3][7] =*caracterRepre1;
-
-    Tablero[4][0] = *caracterRepre1;
-    Tablero[4][1] =*caracterRepre1;
-    Tablero[4][2] = *caracterRepre2;
-    Tablero[4][3] =*caracterRepre1;
-    Tablero[4][4] = *caracterRepre2;
-    Tablero[4][5] =*caracterRepre1;
-    Tablero[4][6] = *caracterRepre1;
-    Tablero[4][7] =*caracterRepre1;
-
-    Tablero[4][0] = *caracterRepre1;
-    Tablero[4][1] = *caracterRepre1;
-    Tablero[4][2] = *caracterRepre2;
-    Tablero[4][3] = *caracterRepre1;
-    Tablero[4][4] = *caracterRepre2;
-    Tablero[4][5] = *caracterRepre1;
-    Tablero[4][6] = *caracterRepre1;
-    Tablero[4][7] = *caracterRepre1;
-
-    Tablero[5][0] = *caracterRepre1;
-    Tablero[5][1] = *caracterRepre2;
-    Tablero[5][2] = *caracterRepre1;
-    Tablero[5][3] = *caracterRepre1;
-    Tablero[5][4] = *caracterRepre1;
-    Tablero[5][5] = *caracterRepre1;
-    Tablero[5][6] = *caracterRepre1;
-    Tablero[5][7] = *caracterRepre1;
-
-    Tablero[6][0] = *caracterRepre1;
-    Tablero[6][1] = *caracterRepre1;
-    Tablero[6][2] = *caracterRepre1;
-    Tablero[6][3] = *caracterRepre1;
-    Tablero[6][4] = *caracterRepre1;
-    Tablero[6][5] = *caracterRepre2;
-    Tablero[6][6] = *caracterRepre1;
-    Tablero[6][7] = *caracterRepre1;
-
-    Tablero[7][0] = *caracterRepre1;
-    Tablero[7][1] = *caracterRepre1;
-    Tablero[7][2] = *caracterRepre1;
-    Tablero[7][3] = *caracterRepre1;
-    Tablero[7][4] = *caracterRepre1;
-    Tablero[7][5] = *caracterRepre1;
-    Tablero[7][6] = *caracterRepre1;
-    Tablero[7][7] = *caracterRepre1;
-    */
 
 }
 
-
-string tablero::filaAmigable()
-{
-    string cadena;
-
-    for(int i = 0; i<filas;i++){
-        cadena += "+---";
-        if(i == filas-1){
-            cadena += "+";
-        }
-    }
-    return cadena;
-
-}
-
-string tablero::numeracionFila()
-{
-    string numeracion = "  ";
-    for(int i = 1; i <= filas;i++){
-        if(i >= 0 && i<= 9){
-            numeracion += to_string(i);
-            numeracion += "   ";
-        }
-        else{
-            numeracion += to_string(i);
-            numeracion += "  ";
-        }
-
-    }
-    return numeracion;
-}
-
-void tablero::imprimirTablero() {
-
-    string numeracion = numeracionFila();
-    string fila = filaAmigable();
-    cout << numeracionFila() << endl;
-    for (int i = 0; i < filas; i++) {
-        if (i >= 0) {
-            cout << fila << endl;
-        }
-        cout << "|";
-        for (int j = 0; j < columnas; j++) {
-            if(Tablero[i][j] == *(jugador1->getCaracterRepre())){
-                cout << " " << "\033[34m" << Tablero[i][j] << "\033[0m" << " |";
-            }
-            else{
-                cout << " " << Tablero[i][j] << " |";
-            }
-        }
-        cout << " " << i+1 << endl;
-    }
-    cout << fila << endl;
-}
 
 void tablero::actualizarCantFichas()
 {
+
+    /*
+     * Metodo encargado de actualizar la cant de fichas en el tablero
+     *
+     * Variables inicializadas:
+     *  - jugador_1: cant fichas para player1
+     *  - jugador_2: cant fichas para player2
+     *
+     * Retornos:
+     *  - none
+     *
+     */
+
     unsigned short int jugador_1 = 0;
     unsigned short int jugador_2 = 0;
     char* caracter1 = jugador1->getCaracterRepre();
@@ -240,51 +153,21 @@ void tablero::actualizarCantFichas()
 
 }
 
-
-void tablero::realizarJugada(short int &numJugador, short int &fila, short int &columna)
-{
-    char* jugadorP;
-    char* jugadorS;
-    short int coordenadaX = 0;
-    short int coordenadaY = 0;
-
-    if (numJugador == 1) {
-        jugadorP = jugador1->getCaracterRepre();
-        jugadorS = jugador2->getCaracterRepre();
-    }
-    else if (numJugador == 2) {
-        jugadorS = jugador1->getCaracterRepre();
-        jugadorP = jugador2->getCaracterRepre();
-    }
-
-    if(!(validezJugada(numJugador,fila,columna))){
-        cout << "La jugada no es valida" << endl;
-        return;
-    }
-
-    Tablero[fila][columna] = *jugadorP;
-
-    for (int i = 0; i < 8; i++) {
-        coordenadaX = fila + direccionesValidas[i][0];
-        coordenadaY = columna + direccionesValidas[i][1];
-        while (0 <= coordenadaX && coordenadaX < 8 && 0 <= coordenadaY && coordenadaY < 8 && Tablero[coordenadaX][coordenadaY] == *jugadorS){
-            coordenadaX += direccionesValidas[i][0];
-            coordenadaY += direccionesValidas[i][1];
-        }
-        if (0 <= coordenadaX && coordenadaX < 8 && 0 <= coordenadaY && coordenadaY < 8 && Tablero[coordenadaX][coordenadaY] == *jugadorP) {
-            coordenadaX -= direccionesValidas[i][0];
-            coordenadaY -= direccionesValidas[i][1];
-            while(Tablero[coordenadaX][coordenadaY] == *jugadorS){
-                Tablero[coordenadaX][coordenadaY] = *jugadorP;
-                coordenadaX -= direccionesValidas[i][0];
-                coordenadaY -= direccionesValidas[i][1];
-            }
-        }
-    }
-}
-
-
 bool tablero::validezJugada(short int& numJugador, short int& fila, short int& columna) {
+
+    /*
+     * Metodo encargado de verificar si la jugada que se realizara es valida (esta va muy de la mano realizarJugada)
+     *
+     * Variables Inicializadas:
+     *  - jugadorP
+     *  - jugadorS
+     *  - coordenadaX,coordenadaY
+     *
+     * Retorno:
+     *  - bool
+     *
+     */
+
     char* jugadorP;
     char* jugadorS;
     short int coordenadaX = 0;
@@ -314,7 +197,7 @@ bool tablero::validezJugada(short int& numJugador, short int& fila, short int& c
             coordenadaX += direccionesValidas[i][0];
             coordenadaY += direccionesValidas[i][1];
 
-            while ((coordenadaX >= 0 && coordenadaX < filas) && (coordenadaY >= 0 && coordenadaY < columnas)) {
+            while ((coordenadaX >= 0 && coordenadaX < filas) && (coordenadaY >= 0 && coordenadaY < columnas)){
                 if (Tablero[coordenadaX][coordenadaY] == *jugadorP) {
                     return true;
                 }
@@ -330,13 +213,79 @@ bool tablero::validezJugada(short int& numJugador, short int& fila, short int& c
     return false;
 }
 
+void tablero::realizarJugada(short int &numJugador, short int &fila, short int &columna)
+{
+
+    /*
+     * Metodo encargado de realizar la jugada dicha por el jugador en su respectivo turno
+     *
+     * Variables Inicializadas:
+     *  - jugadorP
+     *  - jugadorS
+     *  - coordenadaX, coordenadaY: encargadas de marcar la pos que se usara para la jugada
+     *
+     * Retornos:
+     *  - none
+     *
+     */
+
+    char* jugadorP;
+    char* jugadorS;
+    short int coordenadaX = 0;
+    short int coordenadaY = 0;
+
+    if (numJugador == 1) {
+        jugadorP = jugador1->getCaracterRepre();
+        jugadorS = jugador2->getCaracterRepre();
+    }
+    else if (numJugador == 2) {
+        jugadorS = jugador1->getCaracterRepre();
+        jugadorP = jugador2->getCaracterRepre();
+    }
+
+    if(!(validezJugada(numJugador,fila,columna))){
+        cout << "La jugada no es valida" << endl;
+        return;
+    }
+
+    Tablero[fila][columna] = *jugadorP;
+
+    for (int i = 0; i < 8; i++) {
+        coordenadaX = fila + direccionesValidas[i][0];
+        coordenadaY = columna + direccionesValidas[i][1];
+        while ((coordenadaX >= 0 && coordenadaX < filas) && (coordenadaY >= 0 && coordenadaY < columnas) && Tablero[coordenadaX][coordenadaY] == *jugadorS){
+            coordenadaX += direccionesValidas[i][0];
+            coordenadaY += direccionesValidas[i][1];
+        }
+        if ((coordenadaX >= 0 && coordenadaX < filas) && (coordenadaY >= 0 && coordenadaY < columnas) && Tablero[coordenadaX][coordenadaY] == *jugadorP) {
+            coordenadaX -= direccionesValidas[i][0];
+            coordenadaY -= direccionesValidas[i][1];
+            while(Tablero[coordenadaX][coordenadaY] == *jugadorS){
+                Tablero[coordenadaX][coordenadaY] = *jugadorP;
+                coordenadaX -= direccionesValidas[i][0];
+                coordenadaY -= direccionesValidas[i][1];
+            }
+        }
+    }
+}
+
 
 short tablero::contJugadas(short int& numJugador)
 {
+    /*
+     * Metodo encargado de contar el total de jugadas disponibles en el tablero
+     *
+     * Variables Inicializadas:
+     *  - cont: contador
+     *
+     * Retornos:
+     *  - short int cont
+     */
+
     short int cont = 0;
 
     for(short int i = 0; i < filas; i++){
-        for(short int j = 0; j < filas; j++){
+        for(short int j = 0; j < columnas; j++){
             if(validezJugada(numJugador,i,j)){
                 cont ++;
             }
@@ -347,9 +296,65 @@ short tablero::contJugadas(short int& numJugador)
 }
 
 
+string tablero::filaAmigable()
+{
+    //METODOS ENCARGADOS DE LA VISUALIZACIÓN DEL TABLERO DE MANERA AMIGABLE Y ESTETICA
 
+    string cadena;
 
-unsigned int tablero::getFilas() const
+    for(int i = 0; i<filas;i++){
+        cadena += "+---";
+        if(i == filas-1){
+            cadena += "+";
+        }
+    }
+    return cadena;
+
+}
+
+string tablero::numeracionFila()
+{
+    //METODOS ENCARGADOS DE LA VISUALIZACIÓN DEL TABLERO DE MANERA AMIGABLE Y ESTETICA
+    string numeracion = "  ";
+    for(int i = 1; i <= filas;i++){
+        if(i >= 0 && i<= 9){
+            numeracion += to_string(i);
+            numeracion += "   ";
+        }
+        else{
+            numeracion += to_string(i);
+            numeracion += "  ";
+        }
+
+    }
+    return numeracion;
+}
+
+void tablero::imprimirTablero()
+{
+    //METODOS ENCARGADOS DE LA VISUALIZACIÓN DEL TABLERO DE MANERA AMIGABLE Y ESTETICA
+    string numeracion = numeracionFila();
+    string fila = filaAmigable();
+    cout << numeracionFila() << endl;
+    for (int i = 0; i < filas; i++) {
+        if (i >= 0) {
+            cout << fila << endl;
+        }
+        cout << "|";
+        for (int j = 0; j < columnas; j++) {
+            if(Tablero[i][j] == *(jugador1->getCaracterRepre())){
+                cout << " " << "\033[34m" << Tablero[i][j] << "\033[0m" << " |";
+            }
+            else{
+                cout << " " << Tablero[i][j] << " |";
+            }
+        }
+        cout << " " << i+1 << endl;
+    }
+    cout << fila << endl;
+}
+
+unsigned short int tablero::getFilas() const
 {
     return filas;
 }
@@ -359,7 +364,7 @@ void tablero::setFilas(unsigned int newFilas)
     filas = newFilas;
 }
 
-unsigned int tablero::getColumnas() const
+unsigned short int tablero::getColumnas() const
 {
     return columnas;
 }
@@ -368,12 +373,6 @@ void tablero::setColumnas(unsigned int newColumnas)
 {
     columnas = newColumnas;
 }
-
-
-
-
-
-
 
 
 

@@ -8,16 +8,15 @@
 
 class juego
 {
-    char negro = '-';
-    char blanco = '*';
-    unsigned int dimensionTablero;
+    char negro;
+    char blanco;
+    unsigned short int dimensionTablero;
     string ganador;
     string historial;
 
-
 public:
     juego();
-    juego(short int dimensionTablero);
+    juego(unsigned short int dimensionTablero);
 
     void cargar_Historial(string& ruta);
     void menu();

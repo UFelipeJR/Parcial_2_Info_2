@@ -2,20 +2,45 @@
 
 juego::juego()
 {
+    /*
+     * El constructor de la clase juego
+     *
+     */
+
     historial = "";
     dimensionTablero = 8;
+    negro = '-';
+    blanco = '*';
+    ganador = "";
+    historial = "";
 }
 
-juego::juego(short int dimensionTablero)
+
+juego::juego(unsigned short int dimensionTablero)
 {
+    /*
+     * El constructor sobrecargado de la clase juego, esto para facilitar el uso de dimensiones alternas a 8x8
+     *
+     */
+
     historial = "";
     this -> dimensionTablero = dimensionTablero;
+    negro = '-';
+    blanco = '*';
+    ganador = "";
+    historial = "";
 }
-
 
 template<typename T>
 T juego::obtener_Entrada(string mensaje, T inf, T max)
 {
+
+    /*
+     * Este metodo tipo plantilla esta predispuesta para la entrada de datos del usuario,
+     * construida para evitar el exceso de sobrecarga.
+     *
+     */
+
     T opcion;
 
     while (true) {
@@ -39,6 +64,18 @@ T juego::obtener_Entrada(string mensaje, T inf, T max)
 }
 
 void juego::cargar_Historial(string& ruta){
+
+    /*
+     * Metodo de la clase juego, encargada de cargar las partidas pasadas desde un archivo, con el formato
+     * Jugador N: Nombre, Jugador 2: Nombre2, Fecha y Hora: DAY MTH NM HH:MM:SS AGE, GANADOR: Name, Cantidad de Fichas: N
+     *
+     * Variables Inicializadas:
+     *  - size: tamaño
+     *  - archivo: fstream para su lectura y modificacion
+     *
+     * Retornos:
+     *  - None
+     */
 
     unsigned long long int size;
     fstream archivo;
@@ -72,6 +109,18 @@ void juego::cargar_Historial(string& ruta){
 
 void juego::menu()
 {
+
+    /*
+     * Metodo encargado de mostrar el menu para el usuario
+     *
+     * Variables Inicializadas:
+     *  - Opcion: Encargada de entrar a la opcion selecta
+     *  - ruta: Ruta relativa donde se carga el archivo de historial
+     *
+     * Retorno:
+     *  - None
+     */
+
     short int opcion = -1;
     string ruta = "../Otello/Archivos/historial.txt";
     cargar_Historial(ruta);
@@ -105,6 +154,23 @@ void juego::menu()
 
 void juego::menu_juego()
 {
+
+    /*
+     * Metodo encargado de mostrar el menu para el usuario pero del juego en tiempo de ejecución
+     *
+     * Variables Inicializadas:
+     *  - player1: Nombre del jugador 1
+     *  - player2: Nombre del jugador 2
+     *  - nombreAux: variable de control para un cin que reciba el nombre
+     *  - pos: representa la posición del arreglo para poner cuantas jugadas habran disponibles
+     *  - turno: turno
+     *  - jug1, jug2: numeros respectivos para controlar el juego 1 para player1, 2 para player 2
+     *  - resultados: como el nombre lo dice el resultado final del juego
+     *
+     * Retorno:
+     *  - None
+     */
+
     jugador player1;
     jugador player2;
     tablero Tablero(dimensionTablero,dimensionTablero,&player1,&player2);
@@ -193,7 +259,6 @@ void juego::menu_juego()
             }
         }
 
-
     if((Tablero.contJugadas(jug1) == 0)&&(Tablero.contJugadas(jug2) == 0)){
         cout << "Juego Finalizado" << endl;
         Tablero.imprimirTablero();
@@ -215,7 +280,7 @@ void juego::menu_juego()
         break;
     }
 
-
+    Tablero.actualizarCantFichas();
     contTotal = Tablero.contJugadas(jug1) + Tablero.contJugadas(jug2);
     }
     while((contTotal != Tablero.getFilas()*Tablero.getColumnas())||(contTotal != 0)); //Condición para cantidad de fichas
@@ -227,6 +292,18 @@ void juego::menu_juego()
 
 string juego::generar_DMHA()
 {
+
+    /*
+     * Metodo encargado de armar la fecha, hora, dia y año de la finalización
+     *
+     * Variables Inicializadas:
+     *  - registro: string que lleva la fecha completa
+     *  - end_time
+     *
+     * Retorno:
+     *  - string registro.
+     */
+
     string registro;
     auto now = chrono::system_clock::now();
     time_t end_time = chrono::system_clock::to_time_t(now);
@@ -235,18 +312,21 @@ string juego::generar_DMHA()
     return registro;
 }
 
-/*
 void juego::entrada_Array(short int arreglo[2])
 {
-    cout << "Ingrese dos numeros fila y la columna separados por un espacio:" << endl;
-    cin >> arreglo[0] >> arreglo[1];
-}
-*/
+    /*
+     * Metodo encargado de validar la entrada para una jugada
+     *
+     * Variables Inicializadas:
+     *  - entradaValida: booliano que determina si la entrada es valida para continuar el juego
+     *
+     * Retornos:
+     *  - None
+     */
 
-void juego::entrada_Array(short int arreglo[2])
-{
-    cout << "Ingrese dos numeros fila y columna separados por un espacio:" << endl;
     bool entradaValida = false;
+    cout << "Ingrese dos numeros fila y columna separados por un espacio:" << endl;
+
 
     while (!entradaValida) {
         if (cin >> arreglo[0] >> arreglo[1]) {
@@ -268,6 +348,12 @@ void juego::entrada_Array(short int arreglo[2])
 
 void juego::guardar_Cambios(string destino, string contenido)
 {
+
+    /*
+     * Metodo encargado de escribir la nueva información para el archivo que lleva el historial de partidas
+     *
+     */
+
     fstream archivo;
     archivo.open(destino, ios::out);
     archivo << contenido;

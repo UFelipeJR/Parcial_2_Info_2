@@ -1,6 +1,7 @@
+Jugador 1: Santiago, Jugador 2: Felipe, Fecha y Hora: Thu Nov 02 21:36:29 2023, Ganador: Santiago, Cantidad de Fichas: 38
 Jugador 1: Jacinto, Jugador 2: Petunia, Fecha y Hora: Wed Nov 01 20:48:14 2023, Ganador: Jacinto, Cantidad de Fichas: 57
 Jugador 1: Cualquiera, Jugador 2: No, Fecha y Hora: Wed Nov 01 20:46:41 2023, Ganador: Cualquiera, Cantidad de Fichas: 57
 Jugador 1: Andredito, Jugador 2: Felipe, Fecha y Hora: Wed Nov 01 20:22:06 2023, Ganador: Andredito, Cantidad de Fichas: 54
 Jugador 1: Pepe, Jugador 2: Juan, Fecha y Hora: Wed Nov 01 19:50:37 2023, Ganador: Pepe, Cantidad de Fichas: 49
 Jugador 1: Santiago, Jugador 2: Felipe, Fecha y Hora: Tue Oct 31 20:56:18 2023, Ganador: Empate
-Jugador 1: Andredito, Jugador 2: Thomas, Fecha y Hora: Tue Oct 31 20:55:18 2023, Ganador: Empateÿÿÿÿÿÿÿ
+Jugador 1: Andredito, Jugador 2: Thomas, Fecha y Hora: Tue Oct 31 20:55:18 2023, Ganador: Empateÿÿÿÿÿÿÿÿÿÿÿÿ

@@ -11,8 +11,8 @@ class tablero
 {
 
 private:
-    short int filas;
-    short int columnas;
+    unsigned short int filas;
+    unsigned short int columnas;
     unsigned char** Tablero;
     short int direccionesValidas[8][2];
     jugador* jugador1;
@@ -34,9 +34,9 @@ public:
     short int contJugadas(short int& numJugador);
 
 
-    unsigned int getFilas() const;
+    unsigned short int getFilas() const;
     void setFilas(unsigned int newFilas);
-    unsigned int getColumnas() const;
+    unsigned short int getColumnas() const;
     void setColumnas(unsigned int newColumnas);
 };
 
